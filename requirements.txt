@@ -1,0 +1,5 @@
+numpy==1.21.2
+opencv-python==4.5.3.56
+pip==20.0.2
+setuptools==45.2.0
+wheel==0.34.2
