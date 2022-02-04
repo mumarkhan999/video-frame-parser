@@ -30,6 +30,10 @@ def video_to_frames(input_loc, output_loc):
         ret, frame = cap.read()
         if not ret:
             continue
+
+        # rotate the frames if needed
+        frame = cv2.rotate(frame, cv2.cv2.ROTATE_90_CLOCKWISE)
+
         # Write the results back to output location.
         cv2.imwrite(output_loc + "/%#05d.jpg" % (count+1), frame)
         count = count + 1
@@ -41,7 +45,7 @@ def video_to_frames(input_loc, output_loc):
             cap.release()
             # Print stats
             print ("Done extracting frames.\n%d frames extracted" % count)
-            print ("It took %d seconds forconversion." % (time_end-time_start))
+            print ("It took %d seconds for conversion." % (time_end-time_start))
             break
 
 if __name__=="__main__":
